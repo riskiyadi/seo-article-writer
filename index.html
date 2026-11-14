@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -378,7 +378,7 @@
   <header class="hero">
     <span class="badge-top">HIGH-QUALITY &bull; SEO OPTIMIZED &bull; 100% ORIGINAL</span>
     <h1><span>SEO</span> ARTICLE &amp; BLOG WRITER</h1>
-    <p class="subtitle">Bikin kerangka maupun draf artikel SEO penuh pakai AI, cek kepadatan kata kunci, sekaligus hitung estimasi order konten.</p>
+    <p class="subtitle">Generate SEO-friendly article outlines or full drafts with AI, check keyword density in real time, and calculate content writing rates.</p>
 
     <div class="usp-grid">
       <div class="usp-item green">SEO Friendly</div>
@@ -390,89 +390,89 @@
   </header>
 
   <main class="container">
-    <!-- Pengaturan Gemini API Key -->
+    <!-- Gemini API Key Settings -->
     <section class="card api-card">
       <div class="api-header">
-        <h2>Pengaturan Gemini AI</h2>
-        <span id="apiStatus" class="status-badge">Belum diatur</span>
+        <h2>Gemini AI Settings</h2>
+        <span id="apiStatus" class="status-badge">Not configured</span>
       </div>
       <div class="api-row">
-        <input type="password" id="apiKeyInput" placeholder="Tempel Gemini API Key di sini..." />
-        <button id="saveApiBtn" class="btn-save">Simpan</button>
+        <input type="password" id="apiKeyInput" placeholder="Paste your Gemini API Key here..." />
+        <button id="saveApiBtn" class="btn-save">Save</button>
       </div>
     </section>
 
-    <!-- Bagian 1: Generator Kerangka & Artikel AI -->
+    <!-- Section 1: SEO Outline & Article AI Generator -->
     <section class="card">
-      <h2>1. Generator Konten SEO</h2>
+      <h2>1. SEO Content Generator</h2>
       <div class="form-group">
-        <label for="topic">Topik Artikel</label>
-        <input type="text" id="topic" placeholder="Contoh: Cara Merawat Tanaman Hias Indoor" />
+        <label for="topic">Article Topic</label>
+        <input type="text" id="topic" placeholder="e.g., How to Care for Indoor Plants" />
       </div>
 
       <div class="form-group">
-        <label for="keyword">Kata Kunci Utama</label>
-        <input type="text" id="keyword" placeholder="Contoh: tanaman hias indoor" />
+        <label for="keyword">Focus Keyword</label>
+        <input type="text" id="keyword" placeholder="e.g., indoor plants" />
       </div>
 
       <div class="row-2">
         <div class="form-group">
-          <label for="contentType">Jenis Konten</label>
+          <label for="contentType">Content Type</label>
           <select id="contentType">
-            <option value="Blog Post" data-rate="150">Blog Post</option>
-            <option value="Article" data-rate="180">Article</option>
-            <option value="Website Content" data-rate="220">Website Content</option>
-            <option value="SEO Content" data-rate="200">SEO Content</option>
+            <option value="Blog Post" data-rate="0.05">Blog Post</option>
+            <option value="Article" data-rate="0.06">Article</option>
+            <option value="Website Content" data-rate="0.08">Website Content</option>
+            <option value="SEO Content" data-rate="0.07">SEO Content</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="wordCount">Target Jumlah Kata</label>
+          <label for="wordCount">Target Word Count</label>
           <select id="wordCount">
-            <option value="500">500 Kata</option>
-            <option value="1000" selected>1.000 Kata</option>
-            <option value="1500">1.500 Kata</option>
-            <option value="2000">2.000 Kata</option>
+            <option value="500">500 Words</option>
+            <option value="1000" selected>1,000 Words</option>
+            <option value="1500">1,500 Words</option>
+            <option value="2000">2,000 Words</option>
           </select>
         </div>
       </div>
 
       <div class="btn-stack">
-        <button id="generateAiBtn" class="btn-ai">Tulis Artikel Otomatis dengan AI</button>
-        <button id="generateBtn" class="btn-yellow">Buat Kerangka Cepat (Tanpa AI)</button>
+        <button id="generateAiBtn" class="btn-ai">Write Full Article with AI</button>
+        <button id="generateBtn" class="btn-yellow">Generate Quick Outline (No AI)</button>
       </div>
 
       <div id="seoResult" class="result-box hidden">
         <div class="result-item">
-          <h3>Rekomendasi Judul H1</h3>
+          <h3>H1 Title Suggestions</h3>
           <ul id="titleList"></ul>
         </div>
 
         <div class="result-item">
-          <h3>Meta Description <span id="metaCharCount" class="pill">0/155 karakter</span></h3>
+          <h3>Meta Description <span id="metaCharCount" class="pill">0/155 chars</span></h3>
           <p id="metaOutput" class="mono-box"></p>
         </div>
 
         <div id="outlineSection" class="result-item">
-          <h3>Struktur Outline Artikel</h3>
+          <h3>Article Outline Structure</h3>
           <pre id="outlineOutput" class="mono-box"></pre>
-          <button id="copyOutlineBtn" class="btn-outline">Salin Kerangka ke Clipboard</button>
+          <button id="copyOutlineBtn" class="btn-outline">Copy Outline to Clipboard</button>
         </div>
       </div>
     </section>
 
-    <!-- Bagian 2: Live SEO Checker & Hasil Artikel -->
+    <!-- Section 2: Live SEO Checker & Article Output -->
     <section class="card" id="editorSection">
-      <h2>2. Live Editor &amp; Cek Kepadatan Kata Kunci</h2>
-      <p class="helper-text">Hasil artikel dari AI bakal langsung muncul di kotak ini dan otomatis dihitung skor SEO-nya.</p>
+      <h2>2. Live Editor &amp; Keyword Density Checker</h2>
+      <p class="helper-text">Your AI-generated article will appear below and its SEO score will be calculated automatically.</p>
 
       <div class="stats-bar">
         <div class="stat">
-          <span class="stat-label">Jumlah Kata</span>
+          <span class="stat-label">Word Count</span>
           <strong id="liveWords">0</strong>
         </div>
         <div class="stat">
-          <span class="stat-label">Kata Kunci Muncul</span>
+          <span class="stat-label">Keyword Matches</span>
           <strong id="liveKwCount">0x</strong>
         </div>
         <div class="stat">
@@ -481,25 +481,25 @@
         </div>
       </div>
 
-      <textarea id="editorArea" rows="12" placeholder="Hasil artikel otomatis atau ketikan manual kamu bakal tampil di sini..."></textarea>
-      <p id="seoFeedback" class="feedback-text">Masukkan kata kunci utama di atas untuk memantau skor SEO.</p>
-      <button id="copyArticleBtn" class="btn-outline">Salin Seluruh Artikel</button>
+      <textarea id="editorArea" rows="12" placeholder="Your generated article or manual draft will appear here..."></textarea>
+      <p id="seoFeedback" class="feedback-text">Enter a focus keyword above and start writing to track your SEO score.</p>
+      <button id="copyArticleBtn" class="btn-outline">Copy Full Article</button>
     </section>
 
-    <!-- Bagian 3: Kalkulator Jasa & Order WhatsApp -->
+    <!-- Section 3: Rate Calculator & Order WhatsApp -->
     <section class="card order-card">
-      <h2>3. Estimasi Biaya &amp; Pesan Jasa Penulisan</h2>
-      <p class="helper-text">Butuh tim penulis profesional yang ngerjain semuanya sampai beres? Cek estimasi harganya di sini.</p>
+      <h2>3. Rate Calculator &amp; Order via WhatsApp</h2>
+      <p class="helper-text">Need a professional writer to handle everything from start to finish? Check your estimated rate below.</p>
 
       <div class="price-display">
-        <span>Estimasi Biaya</span>
-        <strong id="totalPrice">Rp 150.000</strong>
-        <small id="priceDetail">Blog Post &bull; 1.000 Kata</small>
+        <span>Estimated Rate</span>
+        <strong id="totalPrice">$50.00</strong>
+        <small id="priceDetail">Blog Post &bull; 1,000 Words</small>
       </div>
 
       <div class="form-group">
-        <label for="clientName">Nama Kamu / Nama Website</label>
-        <input type="text" id="clientName" placeholder="Contoh: Budi - tokotanaman.id" />
+        <label for="clientName">Your Name / Website</label>
+        <input type="text" id="clientName" placeholder="e.g., John - greenplants.com" />
       </div>
 
       <button id="whatsappBtn" class="btn-whatsapp">
@@ -551,7 +551,7 @@
       const savedKey = localStorage.getItem("gemini_api_key");
       if (savedKey) {
         apiKeyInput.value = savedKey;
-        apiStatus.textContent = "API Key Tersimpan";
+        apiStatus.textContent = "API Key Saved";
         apiStatus.classList.add("active");
       }
     }
@@ -560,15 +560,15 @@
       const key = apiKeyInput.value.trim();
       if (!key) {
         localStorage.removeItem("gemini_api_key");
-        apiStatus.textContent = "Belum diatur";
+        apiStatus.textContent = "Not configured";
         apiStatus.classList.remove("active");
-        alert("API Key dihapus.");
+        alert("API Key removed.");
         return;
       }
       localStorage.setItem("gemini_api_key", key);
-      apiStatus.textContent = "API Key Tersimpan";
+      apiStatus.textContent = "API Key Saved";
       apiStatus.classList.add("active");
-      alert("Gemini API Key berhasil disimpan!");
+      alert("Gemini API Key saved successfully!");
     });
 
     function capitalize(str) {
@@ -577,12 +577,12 @@
 
     function updatePrice() {
       const selectedOption = contentTypeSelect.options[contentTypeSelect.selectedIndex];
-      const ratePerWord = parseInt(selectedOption.getAttribute("data-rate"), 10);
+      const ratePerWord = parseFloat(selectedOption.getAttribute("data-rate"));
       const words = parseInt(wordCountSelect.value, 10);
       const total = ratePerWord * words;
 
-      totalPriceEl.textContent = "Rp " + total.toLocaleString("id-ID");
-      priceDetailEl.textContent = `${contentTypeSelect.value} • ${words.toLocaleString("id-ID")} Kata`;
+      totalPriceEl.textContent = "$" + total.toFixed(2);
+      priceDetailEl.textContent = `${contentTypeSelect.value} • ${words.toLocaleString("en-US")} Words`;
     }
 
     contentTypeSelect.addEventListener("change", updatePrice);
@@ -601,7 +601,7 @@
         cleanMeta = cleanMeta.substring(0, 152) + "...";
       }
       metaOutput.textContent = cleanMeta;
-      metaCharCount.textContent = `${cleanMeta.length}/155 karakter`;
+      metaCharCount.textContent = `${cleanMeta.length}/155 chars`;
       seoResult.classList.remove("hidden");
     }
 
@@ -613,39 +613,39 @@
       const wordCount = wordCountSelect.value;
 
       if (!apiKey) {
-        alert("Masukkan dan simpan Gemini API Key dulu di bagian paling atas ya!");
+        alert("Please enter and save your Gemini API Key at the top first!");
         apiKeyInput.focus();
         return;
       }
 
       if (!topic || !keyword) {
-        alert("Isi dulu Topik Artikel dan Kata Kunci Utama ya!");
+        alert("Please fill in both the Article Topic and Focus Keyword!");
         return;
       }
 
       generateAiBtn.disabled = true;
-      generateAiBtn.textContent = "Lagi nulis artikel SEO...";
+      generateAiBtn.textContent = "Writing SEO article...";
 
-      const prompt = `Kamu adalah penulis konten SEO profesional berbahasa Indonesia. Buatkan paket artikel SEO lengkap berdasarkan detail berikut:
-- Topik: ${topic}
-- Kata Kunci Utama: ${keyword}
-- Jenis Konten: ${contentType}
-- Target Panjang Artikel: sekitar ${wordCount} kata
+      const prompt = `You are a professional English SEO content writer. Create a complete SEO article package based on the following details:
+- Topic: ${topic}
+- Focus Keyword: ${keyword}
+- Content Type: ${contentType}
+- Target Word Count: approximately ${wordCount} words
 
-Aturan penulisan:
-1. Sisipkan kata kunci utama "${keyword}" secara natural dengan kepadatan sekitar 1% hingga 2%.
-2. Gunakan struktur subjudul H1, H2, dan H3 yang rapi, informatif, enak dibaca, dan orisinal.
-3. Kembalikan respons HANYA dalam format JSON valid dengan struktur persis seperti ini:
+Writing guidelines:
+1. Naturally include the focus keyword "${keyword}" with a keyword density of around 1% to 2%.
+2. Use well-structured H1, H2, and H3 subheadings that are informative, engaging, readable, and 100% original.
+3. Return the response ONLY in valid JSON format with this exact structure:
 {
-  "titles": ["Opsi Judul H1 pertama", "Opsi Judul H1 kedua", "Opsi Judul H1 ketiga"],
-  "metaDescription": "Meta description menarik maksimal 150 karakter mengandung kata kunci",
-  "articleBody": "Isi artikel lengkap dari judul H1 sampai kesimpulan"
+  "titles": ["First H1 title option", "Second H1 title option", "Third H1 title option"],
+  "metaDescription": "Compelling meta description under 150 characters containing the focus keyword",
+  "articleBody": "Full article text from the H1 title down to the conclusion"
 }`;
 
       try {
         const response = await fetch(
-          ``https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
-
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${encodeURIComponent(apiKey)}`,
+          {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -661,7 +661,7 @@ Aturan penulisan:
         const data = await response.json();
 
         if (!response.ok) {
-          throw new Error(data.error?.message || "Gagal terhubung ke Gemini API");
+          throw new Error(data.error?.message || "Failed to connect to Gemini API");
         }
 
         const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
@@ -675,10 +675,10 @@ Aturan penulisan:
         analyzeText();
         editorSection.scrollIntoView({ behavior: "smooth" });
       } catch (err) {
-        alert("Terjadi kesalahan: " + err.message);
+        alert("Error: " + err.message);
       } finally {
         generateAiBtn.disabled = false;
-        generateAiBtn.textContent = "Tulis Artikel Otomatis dengan AI";
+        generateAiBtn.textContent = "Write Full Article with AI";
       }
     });
 
@@ -689,7 +689,7 @@ Aturan penulisan:
       const wordCount = wordCountSelect.value;
 
       if (!topic || !keyword) {
-        alert("Isi dulu Topik Artikel dan Kata Kunci Utama ya!");
+        alert("Please fill in both the Article Topic and Focus Keyword!");
         return;
       }
 
@@ -697,36 +697,36 @@ Aturan penulisan:
       const capKw = capitalize(keyword);
 
       const titles = [
-        `${capTopic}: Panduan Lengkap & Praktis untuk Pemula`,
-        `7 Rahasia Sukses ${capKw} yang Jarang Diketahui`,
-        `Mengenal ${capTopic} dan Manfaatnya untuk Hasil Maksimal`
+        `${capTopic}: A Complete & Practical Guide for Beginners`,
+        `7 Proven Secrets for ${capKw} That Actually Work`,
+        `Understanding ${capTopic} and How to Maximize Your Results`
       ];
 
-      const meta = `Pelajari panduan lengkap ${topic.toLowerCase()} dengan strategi ${keyword.toLowerCase()} yang terbukti efektif, mudah dipahami, dan ramah SEO.`;
+      const meta = `Discover a complete guide on ${topic.toLowerCase()} using proven ${keyword.toLowerCase()} strategies that are easy to follow and SEO-friendly.`;
 
       renderTitlesAndMeta(titles, meta);
       outlineSection.classList.remove("hidden");
 
-      outlineOutput.textContent = `JENIS KONTEN: ${contentType} (${wordCount} Kata)
-KATA KUNCI UTAMA: ${keyword}
+      outlineOutput.textContent = `CONTENT TYPE: ${contentType} (${wordCount} Words)
+FOCUS KEYWORD: ${keyword}
 
 H1: ${titles[0]}
-  - Pendahuluan singkat & hook pembaca dengan kata kunci "${keyword}"
+  - Engaging introduction & reader hook featuring "${keyword}"
 
-H2: Apa Itu ${capKw} dan Mengapa Penting?
-  - Definisi singkat dan relevansi saat ini
-  - Manfaat utama menerapkan ${topic.toLowerCase()}
+H2: What Is ${capKw} and Why Does It Matter?
+  - Clear definition and current relevance
+  - Key benefits of mastering ${topic.toLowerCase()}
 
-H2: Langkah-Langkah Menerapkan ${capTopic}
-  H3: 1. Persiapan Awal yang Dibutuhkan
-  H3: 2. Eksekusi Utama Secara Bertahap
-  H3: 3. Evaluasi dan Optimasi Hasil
+H2: Step-by-Step Guide to ${capTopic}
+  H3: 1. Essential Preparation
+  H3: 2. Core Execution Process
+  H3: 3. Review and Optimization
 
-H2: Kesalahan Umum yang Harus Dihindari
-  - Poin-poin kesalahan pemula dan solusinya
+H2: Common Mistakes to Avoid
+  - Frequent beginner pitfalls and practical solutions
 
-H2: Kesimpulan
-  - Ringkasan poin penting & ajakan bertindak`;
+H2: Conclusion
+  - Summary of key takeaways & call to action`;
 
       analyzeText();
     });
@@ -734,22 +734,22 @@ H2: Kesimpulan
     copyOutlineBtn.addEventListener("click", () => {
       const textToCopy = `${outlineOutput.textContent}\n\nMETA DESCRIPTION:\n${metaOutput.textContent}`;
       navigator.clipboard.writeText(textToCopy).then(() => {
-        copyOutlineBtn.textContent = "Berhasil Disalin!";
+        copyOutlineBtn.textContent = "Copied to Clipboard!";
         setTimeout(() => {
-          copyOutlineBtn.textContent = "Salin Kerangka ke Clipboard";
+          copyOutlineBtn.textContent = "Copy Outline to Clipboard";
         }, 2000);
       });
     });
 
     copyArticleBtn.addEventListener("click", () => {
       if (!editorArea.value.trim()) {
-        alert("Belum ada artikel yang bisa disalin.");
+        alert("There is no article to copy yet.");
         return;
       }
       navigator.clipboard.writeText(editorArea.value).then(() => {
-        copyArticleBtn.textContent = "Artikel Berhasil Disalin!";
+        copyArticleBtn.textContent = "Article Copied!";
         setTimeout(() => {
-          copyArticleBtn.textContent = "Salin Seluruh Artikel";
+          copyArticleBtn.textContent = "Copy Full Article";
         }, 2000);
       });
     });
@@ -765,7 +765,7 @@ H2: Kesimpulan
       if (!keyword || totalWords === 0) {
         liveKwCount.textContent = "0x";
         liveDensity.textContent = "0%";
-        seoFeedback.textContent = "Masukkan kata kunci utama dan mulai tulis artikel untuk memantau skor SEO.";
+        seoFeedback.textContent = "Enter a focus keyword above and start writing to track your SEO score.";
         seoFeedback.style.color = "#94a3b8";
         return;
       }
@@ -781,13 +781,13 @@ H2: Kesimpulan
       liveDensity.textContent = `${density.toFixed(1)}%`;
 
       if (density < 0.8) {
-        seoFeedback.textContent = "Kepadatan kata kunci masih kurang. Tambahkan kata kunci secara natural di beberapa paragraf.";
+        seoFeedback.textContent = "Keyword density is too low. Try adding your focus keyword naturally across a few paragraphs.";
         seoFeedback.style.color = "#facc15";
       } else if (density <= 2.5) {
-        seoFeedback.textContent = "Bagus! Kepadatan kata kunci sudah berada di rentang ideal SEO.";
+        seoFeedback.textContent = "Great! Your keyword density is within the ideal SEO range.";
         seoFeedback.style.color = "#4ade80";
       } else {
-        seoFeedback.textContent = "Hati-hati keyword stuffing! Kurangi pengulangan kata kunci agar tetap natural.";
+        seoFeedback.textContent = "Watch out for keyword stuffing! Reduce keyword repetition to keep the text natural.";
         seoFeedback.style.color = "#f87171";
       }
     }
@@ -796,22 +796,22 @@ H2: Kesimpulan
     keywordInput.addEventListener("input", analyzeText);
 
     whatsappBtn.addEventListener("click", () => {
-      const clientName = clientNameInput.value.trim() || "Calon Klien";
-      const topic = topicInput.value.trim() || "Belum ditentukan";
-      const keyword = keywordInput.value.trim() || "Belum ditentukan";
+      const clientName = clientNameInput.value.trim() || "Prospective Client";
+      const topic = topicInput.value.trim() || "Not specified yet";
+      const keyword = keywordInput.value.trim() || "Not specified yet";
       const contentType = contentTypeSelect.value;
       const wordCount = wordCountSelect.value;
       const price = totalPriceEl.textContent;
 
-      const message = `Halo! Saya *${clientName}* tertarik memesan jasa penulisan konten SEO:
+      const message = `Hello! I'm *${clientName}* and I'd like to order an SEO content writing service:
 
-• *Jenis Konten:* ${contentType}
-• *Topik:* ${topic}
-• *Kata Kunci:* ${keyword}
-• *Target Kata:* ${wordCount} Kata
-• *Estimasi Biaya:* ${price}
+• *Content Type:* ${contentType}
+• *Topic:* ${topic}
+• *Focus Keyword:* ${keyword}
+• *Target Length:* ${wordCount} Words
+• *Estimated Rate:* ${price}
 
-Bisa dibantu proses selanjutnya?`;
+Could you help me get started?`;
 
       const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(waUrl, "_blank");
